@@ -12,14 +12,13 @@ import {LatestTroveData} from "../../src/Types/LatestTroveData.sol";
 
 
 abstract contract Properties is BeforeAfter, Asserts {
-    string internal constant ASSERTION_CANARY_ASSERTION_FAILURE =
-        "!!! canary assertion";
+    string internal constant ASSERTION_CANARY = "!!! canary assertion";
 
     function invariant_canary() public pure returns (bool) {
         revert("Canary invariant");
     }
 
     function assert_canary(uint256 entropy) public {
-        t(entropy > 0, ASSERTION_CANARY_ASSERTION_FAILURE);
+        t(entropy > 0, ASSERTION_CANARY);
     }
 }
