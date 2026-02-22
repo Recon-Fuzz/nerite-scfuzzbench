@@ -8,9 +8,9 @@ import {ERC1820RegistryCompiled} from
 
 // echidna . --contract CryticTester --config echidna.yaml --format text --workers 16 --test-limit 10000000 --test-mode exploration
 // medusa fuzz
-contract ERC1820RegistryRuntime is ERC1820RegistryCompiled {
+contract ERC1820RegistryRuntime {
     constructor() {
-        bytes memory runtime = bin;
+        bytes memory runtime = ERC1820RegistryCompiled.bin;
         assembly {
             return(add(runtime, 0x20), mload(runtime))
         }
