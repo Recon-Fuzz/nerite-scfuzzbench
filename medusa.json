@@ -13,6 +13,9 @@
       "targetContracts": [
         "CryticTester"
       ],
+      "predeployedContracts": {
+        "ERC1820RegistryRuntime": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24"
+      },
       "targetContractsBalances": [
         "0x27b46536c66c8e3000000"
       ],
