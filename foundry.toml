@@ -1,0 +1,57 @@
+[profile.default]
+src = "contracts/src"
+out = "out"
+libs = ["contracts/lib"]
+test = "test"
+script = "no-script"
+auto_detect_remappings = false
+remappings = [
+    "src/=contracts/src/",
+    "@openzeppelin/contracts/=contracts/lib/openzeppelin-contracts/contracts/",
+    "openzeppelin/=contracts/lib/V2-gov/lib/openzeppelin-contracts/",
+    "@superfluid-finance/=contracts/lib/superfluid-protocol-monorepo/packages/",
+    "@chimera/=contracts/lib/V2-gov/lib/chimera/src/",
+    "openzeppelin-contracts/=contracts/lib/openzeppelin-contracts/",
+    "forge-std/=contracts/lib/forge-std/src/",
+    "Solady/=contracts/lib/Solady/src/",
+    "V2-gov/=contracts/lib/V2-gov/",
+    "chimera/=contracts/lib/V2-gov/lib/chimera/src/",
+    "ds-test/=contracts/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/",
+    "erc4626-tests/=contracts/lib/openzeppelin-contracts/lib/erc4626-tests/",
+    "superfluid-protocol-monorepo/=contracts/lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/",
+    "v4-core/=contracts/lib/V2-gov/lib/v4-core/",
+    "lib/=contracts/lib/"
+]
+evm_version = 'cancun'
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+ignored_error_codes = [3860, 5574]
+fs_permissions = [
+    { access = "read", path = "./contracts/utils/assets/" },
+    { access = "read-write", path = "./contracts/utils/assets/test_output" },
+    { access = "read-write", path = "./contracts/deployment-manifest.json" }
+]
+
+[invariant]
+call_override = false
+fail_on_revert = false
+runs = 500000000
+depth = 100
+include_storage = true
+show_solidity = true
+show_metrics = true
+continuous_run = true
+corpus_dir = "corpus/foundry"
+shrink_run_limit = 0
+
+[profile.ci.invariant]
+shrink_run_limit = 0
+
+[profile.default.rpc_endpoints]
+mainnet = "${MAINNET_RPC_URL}"
+tenderly-mainnet = "${TENDERLY_RPC_URL}"
+
+[profile.e2e]
+broadcast = 'broadcast-e2e'
+no_storage_caching = true

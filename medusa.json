@@ -76,7 +76,7 @@
     "compilation": {
       "platform": "crytic-compile",
       "platformConfig": {
-        "target": "contracts/test/recon/CryticTester.sol",
+        "target": "test/recon/CryticTester.sol",
         "solcVersion": "",
         "exportDirectory": "",
         "args": [
