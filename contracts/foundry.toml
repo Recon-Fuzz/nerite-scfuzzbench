@@ -14,9 +14,14 @@ fs_permissions = [
 
 [invariant]
 call_override = false
-fail_on_revert = true
-runs = 500
-depth = 50
+fail_on_revert = false
+runs = 500000000
+depth = 100
+include_storage = true
+show_solidity = true
+show_metrics = true
+continuous_run = true
+corpus_dir = "corpus/foundry"
 # failure_persist_dir = "/dev/null" # XXX circumvent this half-baked Foundry feature
 shrink_run_limit = 0 # XXX shrinking is super broken, results in completely wrong repro sequence
 
