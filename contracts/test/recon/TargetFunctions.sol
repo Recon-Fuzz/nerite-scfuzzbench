@@ -731,11 +731,4 @@ abstract contract TargetFunctions is
 
     /// AUTO GENERATED TARGET FUNCTIONS - WARNING: DO NOT DELETE OR MODIFY THIS LINE ///
 
-    function canary_liquidation() public {
-        t(!hasDoneLiquidation, "canary_liquidation");
-    }
-    function canary_redemption() public {
-        t(!hasDoneRedemption, "canary_redemption");
-    }
-
 }
